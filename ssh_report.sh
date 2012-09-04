@@ -7,6 +7,13 @@ from=`date -d @$from_in_seconds +"%b %d %T"`
 Logins=`read month day time < <(date "+%b %_d %T" -d "-12 hours"); awk -v m="$month" -v d="$day" -v t="$time" '$1 == m && $2 >= d && $3 >= t {p=1} p' /var/log/auth.log >>file1`
 
 echo "=====================" >> logs
+echo "= Logins Attempts   =" >> logs
+echo "=====================" >> logs
+total_atmp=`cat file|wc -l`
+succ_atmp=`cat file|grep -i Accepted|wc -l`
+fail_atmp=`cat file|grep -i Failure|wc -l`
+echo -e "Total Number of Attempts=" $total_atmp "\tSuccessful Attempts=" $succ_atmp "\tFailure Attempts=" $fail_atmp"\n"
+echo "=====================" >> logs
 echo "= Successful logins =" >> logs
 echo "=====================" >> logs
 gawk 'BEGIN {
