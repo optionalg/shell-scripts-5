@@ -4,7 +4,7 @@ let from_in_seconds=`date +%s`-43200
 from=`date -d @$from_in_seconds +"%b %d %T"`
 >file1
 >logs
-Logins=`read month day time < <(date "+%b %_d %T" -d "-12 hours"); awk -v m="$month" -v d="$day" -v t="$time" '$1 == m && $2 >= d && $3 >= t {p=1} p' file >>file1`
+Logins=`read month day time < <(date "+%b %_d %T" -d "-12 hours"); awk -v m="$month" -v d="$day" -v t="$time" '$1 == m && $2 >= d && $3 >= t {p=1} p' /var/log/auth.log >>file1`
 
 echo "=====================" >> logs
 echo "= Successful logins =" >> logs
