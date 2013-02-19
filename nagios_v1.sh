@@ -7,7 +7,7 @@
 #
 # This Script is tested on Centos/RHEL 5.x and 6.2.
 # Please note that this is first beta release and might have some bugs
-# It should be tried on test instances before running on
+# We recommend you to try it on test instances before running it on
 # Production machines.
 #
 # ChangeLog
